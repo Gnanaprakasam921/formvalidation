@@ -1,0 +1,220 @@
+<html>
+
+<head>
+    <title>Form</title>
+</head>
+
+<body>
+
+    <div>
+
+
+        <table border="2" align="center">
+            <tr>
+                <td>
+
+                    <script src="script.js"></script>
+                    <script src="lable.js"></script>
+
+                    <form onsubmit="validation()" action="output.html">
+                        <fieldset style=" text-align: center">
+                            <h1 style="text-align: center;">Login Form</h1>
+                        </fieldset>
+                        <p><label for="name">Name</label>
+                            <input onkeypress="validName()" type="text" name="name" id="name" placeholder="FirstName">
+                        </p>
+                        <label for="" id="iblur" style="color: red; visibility: hidden;">Invalid</label>
+                        <label for="" id="iblur" style="border:2px solid red; visibility: hidden;">Invalid</label>
+
+
+                        <p><label for="lastname">LastName</label>
+                            <input onkeypress="validLastName()" type="text" name="lastname" id="lastname"
+                                placeholder="LastName">
+                        </p>
+                        <label for="" id="lblur" style="color: red; visibility: hidden;">Invalid</label>
+
+                        <p><label for="email">EMail</label>
+                            <input onkeypress="validEmail()" type="email" name="email" id="email" placeholder="Email">
+                        </p>
+                        <label for="" id="eblur" style="color: red; visibility: hidden;">Invalid</label>
+
+                        <p><label for="number">Phone</label>
+                            <input onkeypress="validphone()" type="text" name="number" id="number" placeholder="Phone">
+                        </p>
+                        <label for="" id="phoneblur" style="color: red; visibility: hidden;">Invalid</label>
+
+                        <p><label for="PASSWORD">Password</label>
+                            <input onkeypress="validpassword()" type="password" name="Password" id="password"
+                                placeholder="Pasword">
+                        </p>
+                        <label for="" id="passblur" style="color: red; visibility: hidden;">Invalid</label>
+
+
+
+                        <p><Label for="gender">Gender</Label><br>
+                            <input onkeypress="validgender()" type="radio" name="gender" id="gender">Male <br>
+                            <input onkeypress="validgender()" type="radio" name="gender" id="gender">Female <br>
+                            <input onkeypress="validgender()" type="radio" name="gender" id="gender">Not with to
+                            disclose
+                        </p>
+                        <label for="" id="radioblur" style="color: red; visibility: hidden;">Invalid</label>
+
+                        <p><label for="adress">Adress</label><br>
+                            <textarea onkeypress="validaddress()" name="adress" id="adress" rows="5"
+                                cols="30"></textarea>
+                        </p>
+                        <label for="" id="addblur" style="color: red; visibility: hidden;">Invalid</label> <br>
+
+                        <input onclick="checkaddress()" type="checkbox" name="same_add" id="same_add">
+                        <label for="same_add">Same as Current Address</label> <br>
+
+                        <label for="per_add">Permanant Address</label><br>
+                        <textarea name="per_add" id="per_add" rows="5" cols="30"> </textarea><br>
+
+
+
+                        <p><label for="pin">Pincode:</label>
+                            <input onkeypress="validpin()" type="text" name="pin" id="pin" placeholder="pin">
+                        </p>
+
+                        <label for="" id="pinblur" style="color: red; visibility: hidden;">Invalid</label>
+
+                        <p><label for="pan">PAN number:</label>
+                            <input onkeypress="validpan()" type="text" name="pan" id="pan" placeholder="pan">
+
+                        </p>
+                        <label for="" id="panblur" style="color: red; visibility: hidden;">Invalid</label>
+
+                        <p><label for="dob">Date of Birth</label>
+                            <input type="date" name="dob" id="dob">
+                        </p>
+
+                        <p><label for="time">Time</label>
+                            <input type="time" name="time" id="time">
+                        </p>
+
+                        <p><label for="language">Languages</label><br>
+                            <input type="checkbox" name="language[]" id="language">Tamil <br>
+                            <input type="checkbox" name="language[]" id="language">English <br>
+                            <input type="checkbox" name="language[]" id="language">French
+                        </p>
+
+                        <label for="" id="checkblur" style="color: red; visibility: hidden;">Invalid</label>
+
+                        <p><label for="intrest">Select Field of intrest</label><br>
+                            <select name="intrest" multiple="3">
+                                <option value="">SelectOption</option>
+                                <option value="Music">Music</option>
+                                <option value="Crying">Crying</option>
+                                <option value="Batmition">batimiton</option>
+                                <option value="Criket">Criket</option>
+
+                                <option value="forball">Foodball</option>
+                                <option value="vollybal">vollyBall</option>
+                            </select>
+
+                        </p>
+                        <p><label for="amount">Balance:</label>
+                            <input onkeypress="validAmount()" type="text" name="amount" id="amount"
+                                placeholder="Enter amount">
+                        </p>
+
+                        <label for="" id="balanceblur" style="color: red; visibility: hidden;">Invalid</label>
+
+
+
+                        <p><label for="photo">Upload your Photo</label><br>
+                            <input type="file" name="photo" id="photo">
+                        </p>
+                        <label for="" id="fileload" style="color: red; visibility: hidden;">Invalid</label>
+
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="reset">
+                    </form>
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div>
+        <h2>OutPut Screen</h2>
+
+        <table border="2" onload="storeTable()">
+            <tr>
+
+                <th>SELECTION</th>
+                <TH colspan="3"> USER DETAILS</TH>
+
+            </tr>
+            <tr>
+                <TD> NAME</TD>
+                <TD colspan="3"><span id="result-name"></span></TD>
+            </tr>
+            <TR>
+                <TD>Last Name</TD>
+                <TD colspan="3"><span id="result-lname"></span></TD>
+            </TR>
+            <TR>
+                <TD>EMAIL</TD>
+                <TD colspan="3"><span id="result-email"></span></TD>
+            </TR>
+            <TR>
+                <TD>PHONE</TD>
+                <TD colspan="3"><span id="result-phone"></span> </TD>
+
+            </TR>
+            <TR>
+                <TD>PASSWORD</TD>
+                <TD colspan="3"><span id="result-password"></span></TD>
+            </TR>
+            <TR>
+                <TD>GENDER</TD>
+                <TD colspan="3"><span id="result-gender"></span></TD>
+            </TR>
+            <TR>
+                <TD>ADDRESS</TD>
+                <TD colspan="3"><span id="result-adress"></span></TD>
+            </TR>
+            <TR>
+                <TD>Pin code</TD>
+                <TD colspan="3"><span id="result-pin"></span></TD>
+            </TR>
+            <TR>
+                <TD>PAN number</TD>
+                <TD colspan="3"><span id="result-pan"></span></TD>
+            </TR>
+            <TR>
+                <TD>DOB</TD>
+                <TD colspan="3"><span id="result-dob"></span></TD>
+            </TR>
+            <TR>
+                <TD>TIME</TD>
+                <TD colspan="3"><span id="result-time"></span></TD>
+            </TR>
+            <TR>
+                <TD>Lang</TD>
+                <TD><span id="result-lang"></span></TD>
+                <td colspan="2"> <span id="result-lang"></span></td>
+            </TR>
+            <TR>
+                <TD>Field </TD>
+                <TD><span id="result-field"></span></TD>
+                <td><span id="result-fild"></span></td>
+                <td><span id="result-fild"></span></td>
+            </TR>
+            <TR>
+                <TD>Balance</TD>
+                <TD colspan="3"><span id="result-balance"></span></TD>
+            </TR>
+
+            <TR>
+                <TD>Image</TD>
+                <TD><span id="result-pic"></span></TD>
+            </TR>
+
+        </table>
+    </div>
+</body>
+
+</html>
